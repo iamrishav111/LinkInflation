@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'preview-android'
+
+    publishedGroupId = 'com.freesoulapps'
+    libraryName = 'PreviewAndroid'
+    artifact = 'preview-android'
+
+    libraryDescription = 'Creating preview view for android from link'
+
+    siteUrl = 'https://github.com/FreesoulApps/PreviewAndroid'
+    gitUrl = 'https://github.com/FreesoulApps/PreviewAndroid.git'
+
+    libraryVersion = '0.3.3'
+
+    developerId = 'freesoulapps'
+    developerName = 'Alex Vainshtein'
+    developerEmail = 'av.freesoul@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "iamrishav.com.example.collapselayout"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    implementation 'org.jsoup:jsoup:1.11.3'
+    compile 'com.github.bumptech.glide:glide:4.8.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:percent:23.1.1'
+    implementation 'com.squareup.okhttp:okhttp:2.7.5'
+    implementation 'com.victor:lib:1.0.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    implementation 'de.hdodenhof:circleimageview:1.3.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+
+
+}
+//apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
+apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/bintrayv1.gradle'
